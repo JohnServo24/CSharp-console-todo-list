@@ -26,7 +26,7 @@ public class TodoList
 
     public void Delete(int id)
     {
-        var idx = list.FindIndex(t => t.Id == id);
+        int idx = list.FindIndex(t => t.Id == id);
         if (idx == -1)
         {
             Console.WriteLine("Item not found.");
