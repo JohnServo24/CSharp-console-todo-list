@@ -60,7 +60,7 @@ public class TodoList
         item.IsDone = !item.IsDone;
     }
 
-    public Todo? FindById(int id) => list.Find(l => l.Id == id);
+    public Todo? FindById(int id) => list.FirstOrDefault(t => t.Id == id);
 
     public List<Todo> GetAll() => list;
 }
