@@ -21,7 +21,7 @@ class Program
 
                 foreach (var l in list)
                 {
-                    Console.WriteLine(l.Content);
+                    Console.WriteLine($"{l.Id} - {l.Content} - {(l.IsDone ? "D" : "ND")}");
                 }
             }
             else if (todo == "--find")
@@ -68,6 +68,13 @@ class Program
 
                 todoList.Delete(id.Value);
 
+            }
+            else if (todo == "--toggle")
+            {
+                int? id = GetIdOnConsole();
+                if (!id.HasValue) continue;
+
+                todoList.Toggle(id.Value);
             }
             else
             {

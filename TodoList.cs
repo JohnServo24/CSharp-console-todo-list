@@ -26,10 +26,10 @@ public class TodoList
 
     public void Delete(int id)
     {
-        int idx = list.FindIndex(l => l.Id == id);
+        var idx = list.FindIndex(t => t.Id == id);
         if (idx == -1)
         {
-            Console.WriteLine("Out of bounds.");
+            Console.WriteLine("Item not found.");
             return;
         }
 
@@ -38,14 +38,26 @@ public class TodoList
 
     public void Edit(int id, string newContent)
     {
-        int idx = list.FindIndex(l => l.Id == id);
-        if (idx == -1)
+        var item = list.FirstOrDefault(t => t.Id == id);
+        if (item == null)
         {
-            Console.WriteLine("Out of bounds.");
+            Console.WriteLine("Item not found.");
             return;
         }
 
-        list[idx].Content = newContent;
+        item.Content = newContent;
+    }
+
+    public void Toggle(int id)
+    {
+        var item = list.FirstOrDefault(t => t.Id == id);
+        if (item == null)
+        {
+            Console.WriteLine("Item not found.");
+            return;
+        }
+
+        item.IsDone = !item.IsDone;
     }
 
     public Todo? FindById(int id) => list.Find(l => l.Id == id);
