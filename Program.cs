@@ -27,7 +27,7 @@ class Program
             else if (todo == "--find")
             {
                 int? id = GetIdOnConsole();
-                if (!id.HasValue) continue;
+                if (id == null) continue;
 
                 Todo? item = todoList.FindById(id.Value);
                 if (item == null)
@@ -41,7 +41,7 @@ class Program
             else if (todo == "--edit")
             {
                 int? id = GetIdOnConsole();
-                if (!id.HasValue) continue;
+                if (id == null) continue;
 
                 string content;
                 while (true)
