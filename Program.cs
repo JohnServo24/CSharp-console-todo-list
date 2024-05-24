@@ -5,8 +5,7 @@ class Program
     static void Main()
     {
         TodoList todoList = new TodoList();
-
-        todoList.CowsayAdded += () => Console.WriteLine("COWSAY");
+        todoList.CowsayAdded += (string content) => CowSay.Call(content);
 
         while (true)
         {

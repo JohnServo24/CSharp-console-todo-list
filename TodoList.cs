@@ -16,7 +16,7 @@ public class Todo
 
 public class TodoList
 {
-    public event Action? CowsayAdded;
+    public event Action<string>? CowsayAdded;
 
     List<Todo> list = new List<Todo>();
     int nextId = 0;
@@ -27,7 +27,7 @@ public class TodoList
 
         if (todo.StartsWith("cowsay:"))
         {
-            CowsayAdded?.Invoke();
+            CowsayAdded?.Invoke(todo);
         }
     }
 
