@@ -1,5 +1,8 @@
 using System.Diagnostics;
 
+// Can't think of another name
+namespace Fun;
+
 class CowSay
 {
     public static void Call(string content)
