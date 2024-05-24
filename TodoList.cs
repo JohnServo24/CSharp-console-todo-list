@@ -16,12 +16,20 @@ public class Todo
 
 public class TodoList
 {
+    public event Action? CowsayAdded;
+
     List<Todo> list = new List<Todo>();
     int nextId = 0;
 
     public void Add(string todo)
     {
         list.Add(new Todo(nextId++, todo));
+
+        if (todo.StartsWith("cowsay:"))
+        {
+            Console.WriteLine("Cowsay");
+            CowsayAdded?.Invoke();
+        }
     }
 
     public void Delete(int id)
