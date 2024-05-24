@@ -27,7 +27,6 @@ public class TodoList
 
         if (todo.StartsWith("cowsay:"))
         {
-            Console.WriteLine("Cowsay");
             CowsayAdded?.Invoke();
         }
     }

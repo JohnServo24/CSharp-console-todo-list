@@ -6,6 +6,8 @@ class Program
     {
         TodoList todoList = new TodoList();
 
+        todoList.CowsayAdded += () => Console.WriteLine("COWSAY");
+
         while (true)
         {
             Console.Write("Enter a todo: ");
