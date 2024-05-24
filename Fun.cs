@@ -7,11 +7,13 @@ class CowSay
 {
     public static void Call(string content)
     {
+        // Creates a new process in the OS
         var process = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "/bin/bash",
+                // Gets file. Most likely takes an executable. /bin/bash is an executable.
+                FileName = "/bin/bash", // NOTE: some machines may not have bash
                 ArgumentList = { "-c", $"cowsay {content}" },
                 // Stdout gets redirected to our program instead of being displayed in the terminal
                 RedirectStandardOutput = true,
